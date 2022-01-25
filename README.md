@@ -37,4 +37,24 @@ select concat ('This is ', people.name, ', he has email ', people.email) as info
  This is Lora, she has email tpicks@gmail.com
  This is Vasya, he has email mmm@gmail.com
 
-````
+```
+```sql
+select concat ('We have ', count(people.gender), ' boys!') from people where gender = 'm' union select concat ('We have ', count(people.gender), ' girls!') from people where gender = 'f';
+------------------
+ We have 3 boys!
+ We have 3 girls!
+
+```
+
+```sql
+select name, (select count(*) from word where (vocabulary_id = 1)) from vocabulary;
+  name   | count
+---------+-------
+ animals |    10
+ school  |    10
+ nature  |    10
+ human   |    10
+ SF      |    10
+(5 ёЄЁюъ)
+
+```
