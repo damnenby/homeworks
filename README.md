@@ -7,10 +7,11 @@ name VARCHAR(255),
 pwd VARCHAR(255),
 email VARCHAR(255),
 gender varchar(255)
-);
-```sql
+
+
  id | name | pwd | email | gender
 ----+------+-----+-------+--------
+);
 ```
 ```sql
 INSERT INTO people (name, pwd, email, gender) VALUES ('Vasya','21341234qwfsdf','mmm@gmail.com','m'),('Alex','21341234','mmm@gmail.com','m'),('Alexey','qq21341234Q','alexey@gmail.com','m'),('Helen','MarryMeeee','hell@@gmail.com','f'),('Jenny','SmakeMyb','eachup@gmail.com','f'),('Lora','burn23','tpicks@gmail.com','f') ;
@@ -39,8 +40,10 @@ select concat ('This is ', people.name, ', he has email ', people.email) as info
 
 ```
 ```sql
-select concat ('We have ', count(people.gender), ' boys!') from people where gender = 'm' union select concat ('We have ', count(people.gender), ' girls!') from people where gender = 'f';
-------------------
+select concat ('We have ', count(people.gender), ' boys!') as "Gender information:"from people where gender = 'm' union select concat ('We have ', count(people.gender), ' girls!') from people where gender = 'f';
+
+ Gender information:
+---------------------
  We have 3 boys!
  We have 3 girls!
 
@@ -48,6 +51,7 @@ select concat ('We have ', count(people.gender), ' boys!') from people where gen
 
 ```sql
 select name, (select count(*) as words from word where (word.vocabulary_id = vocabulary.id)) from vocabulary;
+
   name   | words
 ---------+-------
  animals |    10
