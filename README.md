@@ -8,9 +8,10 @@ pwd VARCHAR(255),
 email VARCHAR(255),
 gender varchar(255)
 );
-```
+```sql
  id | name | pwd | email | gender
 ----+------+-----+-------+--------
+```
 ```sql
 INSERT INTO people (name, pwd, email, gender) VALUES ('Vasya','21341234qwfsdf','mmm@gmail.com','m'),('Alex','21341234','mmm@gmail.com','m'),('Alexey','qq21341234Q','alexey@gmail.com','m'),('Helen','MarryMeeee','hell@@gmail.com','f'),('Jenny','SmakeMyb','eachup@gmail.com','f'),('Lora','burn23','tpicks@gmail.com','f') ;
 
@@ -23,3 +24,17 @@ INSERT INTO people (name, pwd, email, gender) VALUES ('Vasya','21341234qwfsdf','
   5 | Jenny  | SmakeMyb       | eachup@gmail.com | f
   6 | Lora   | burn23         | tpicks@gmail.com | f
 ```
+```sql
+
+select concat ('This is ', people.name, ', he has email ', people.email) as info from people where gender = 'm' union select concat ('This is ', people.name, ', she has email ', people.email) from people where gender = 'f';
+
+                     info
+-----------------------------------------------
+ This is Alex, he has email mmm@gmail.com
+ This is Alexey, he has email alexey@gmail.com
+ This is Helen, she has email hell@@gmail.com
+ This is Jenny, she has email eachup@gmail.com
+ This is Lora, she has email tpicks@gmail.com
+ This is Vasya, he has email mmm@gmail.com
+
+````
