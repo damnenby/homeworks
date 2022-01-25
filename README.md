@@ -7,11 +7,12 @@ name VARCHAR(255),
 pwd VARCHAR(255),
 email VARCHAR(255),
 gender varchar(255)
+);
 
 
  id | name | pwd | email | gender
 ----+------+-----+-------+--------
-);
+
 ```
 ```sql
 INSERT INTO people (name, pwd, email, gender) VALUES ('Vasya','21341234qwfsdf','mmm@gmail.com','m'),('Alex','21341234','mmm@gmail.com','m'),('Alexey','qq21341234Q','alexey@gmail.com','m'),('Helen','MarryMeeee','hell@@gmail.com','f'),('Jenny','SmakeMyb','eachup@gmail.com','f'),('Lora','burn23','tpicks@gmail.com','f') ;
