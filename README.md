@@ -47,8 +47,8 @@ select concat ('We have ', count(people.gender), ' boys!') from people where gen
 ```
 
 ```sql
-select name, (select count(*) from word where (vocabulary_id = 1)) from vocabulary;
-  name   | count
+select name, (select count(*) as words from word where (vocabulary_id = 1)) from vocabulary;
+  name   | words
 ---------+-------
  animals |    10
  school  |    10
