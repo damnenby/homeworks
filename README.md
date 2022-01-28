@@ -28,20 +28,19 @@ INSERT INTO people (name, pwd, email, gender) VALUES ('Vasya','21341234qwfsdf','
 ```
 ```sql
 
-select concat ('This is ', people.name, ', he has email ', people.email) as info from people where gender = 'm' union select concat ('This is ', people.name, ', she has email ', people.email) from people where gender = 'f';
+SELECT concat ('This is ', name, ', ', CASE gender WHEN 'm' THEN 'he' WHEN 'f' THEN 'she' END, ' has email', email) as info FROM people;
 
                      info
------------------------------------------------
- This is Alex, he has email mmm@gmail.com
- This is Alexey, he has email alexey@gmail.com
- This is Helen, she has email hell@@gmail.com
- This is Jenny, she has email eachup@gmail.com
- This is Lora, she has email tpicks@gmail.com
- This is Vasya, he has email mmm@gmail.com
-
+----------------------------------------------
+ This is Vasya, he has emailmmm@gmail.com
+ This is Alex, he has emailmmm@gmail.com
+ This is Alexey, he has emailalexey@gmail.com
+ This is Helen, she has emailhell@@gmail.com
+ This is Jenny, she has emaileachup@gmail.com
+ This is Lora, she has emailtpicks@gmail.com
 ```
 ```sql
-select concat ('We have ', count(people.gender), ' boys!') as "Gender information:"from people where gender = 'm' union select concat ('We have ', count(people.gender), ' girls!') from people where gender = 'f';
+select concat ('We have ', count(name), CASE gender WHEN 'm' then ' boys!' WHEN 'f' THEN ' girls!' END) as "Gender information:" from people group by gender;
 
  Gender information:
 ---------------------
